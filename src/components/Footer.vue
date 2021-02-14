@@ -28,16 +28,16 @@ export default {
     items: [
       {
         icon: "mdi-twitter",
-        link: "https://github.com/LuisSangines"
+        link: "https://github.com/"
 
       },
       {
         icon: "mdi-facebook",
-        link: "a"
+        link: ""
       },
       {
         icon: "mdi-instagram",
-        link: "a"      
+        link: ""      
       }
     ]
   })

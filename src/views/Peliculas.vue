@@ -177,7 +177,6 @@ export default {
 }
 h1{
   font-family: cursive,Lucida Handwriting;
-  font-size: 40vw;
 }
 </style>
 

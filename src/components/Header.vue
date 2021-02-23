@@ -1,6 +1,6 @@
 <template>
   <v-container>
-    <v-toolbar flat class="mainHeader">
+    <v-toolbar dense class="mainHeader" >
       <v-toolbar-title>
         <v-avatar>
           <img
@@ -42,6 +42,7 @@ export default {
 };
 </script>
 
+
 <style lang="scss">
 header {
   .v-toolbar__title {
@@ -50,23 +51,22 @@ header {
   }
 
   .v-toolbar__content {
-    @media only screen and (max-width: 599px) {
+    @media only screen and (max-width: 499px) {
       padding: 0;
     }
   }
 }
 
 .mainHeader {
-  background-color:  rgb(49, 22, 80) !important;
-
+  background: #008080 !important;
   .v-toolbar__title {
-    color: #fff;
+    color:#800000;
   }
 
   .v-toolbar__items {
     .v-btn__content {
       a {
-        color: rgb(123, 40, 218);
+        color:#800000;
       }
     }
 
@@ -76,5 +76,6 @@ header {
       }
     }
   }
+
 }
 </style>

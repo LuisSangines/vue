@@ -1,5 +1,5 @@
 <template>
-  <v-contanier>
+  <v-container>
     <div class="promosionales">
       <v-carousel cycle hide-delimiters>
         <v-carousel-item
@@ -15,7 +15,9 @@
     </div>
     <div class="estrenos">
       <v-container>
-        <h2 class="text-center">Que quieres ver hoy?</h2>  
+        <div class="titulo">
+        <h1 class="text-center">Que quieres ver hoy?</h1>  
+        </div>
           <v-row>
             <v-col v-for="item in items" :key="item.id" class="d-flex child-flex" cols="6" sm="4">
               <v-card flat tile 
@@ -31,7 +33,6 @@
                   </v-card-title>
                   <v-card-text>
                     <v-row
-                      align="center"
                       class="mx-0"
                     >
                       <v-rating
@@ -46,14 +47,30 @@
                         {{ item.rating }} (413)
                       </div>
                     </v-row><br>
-                    <div class="movieInfo">Info</div>
+                    <div class="trailerMovie">
+  
+                      <v-menu transition="fab-transition">
+                      <template v-slot:activator="{ on, attrs }">
+                        <v-btn
+                          dark
+                          color="primary"
+                          v-bind="attrs"
+                          v-on="on"
+                        >
+                          VER TRAILER
+                        </v-btn>
+                      </template>
+                      <iframe width="560" height="315" :src="item.watch_trailer"  frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </v-menu>
+
+                    </div>
                   </v-card-text> 
               </v-card>
             </v-col>
           </v-row>
       </v-container>
     </div>
-  </v-contanier>
+  </v-container>
 </template>
 
 <script>
@@ -77,55 +94,64 @@ export default {
           id: 1,
           src: require("../assets/images/img1.jpg"),
           title: "Frozen: una aventura congelada",
-          rating: 3.5
+          rating: 3.5,
+          watch_trailer: "https://youtube.com/embed/FLzfXQSPBOg" 
         },
         {
           id: 2,
           src: require("../assets/images/img2.jpg"),
           title: "Escuadrón Suicida",
-          rating: 4
+          rating: 4,
+          watch_trailer: "https://youtube.com/embed/Ri-OUeRulio"
         },
         {
           id: 3,
           src: require("../assets/images/img3.jpg"),
           title: "Avengers: Endgame",
-          rating: 4.5
+          rating: 4.5,
+          watch_trailer: "https://youtube.com/embed/KdL8ucqi1F8"
         },
         {
           id: 4,
           src: require("../assets/images/img4.jpg"),
           title: "Star wars: episodio III - la venganza de los sith",
-          rating: 5
+          rating: 5,
+          watch_trailer: "https://youtube.com/embed/5UnjrG_N8hU"
         },
         {
           id: 5,
           src: require("../assets/images/img5.jpg"),
           title: "Rápidos y furiosos: 5in control",
-          rating: 3.8
+          rating: 3.8,
+          watch_trailer: "https://youtube.com/embed/6nu_OQYEwPY"
         },
         {
           id: 6,
           src: require("../assets/images/img6.jpg"),
           title: "Harry Potter y la orden del Fénix",
-          rating: 4.2
+          rating: 4.2,
+          watch_trailer: "https://youtube.com/embed/xw6MZfsv-pY"
         },
         {
           id: 7,
           src: require("../assets/images/img7.jpg"),
           title: "El Señor de los Anillos: la Comunidad del Anillo",
-          rating: 4.8
+          rating: 4.8,
+          watch_trailer: "https://youtube.com/embed/GuW21RLMndc"
         },
         {
           id: 8,
           src: require("../assets/images/img8.jpg"),
           title: "Piratas del Caribe: la maldición del Perla Negra",
-          rating: 4
+          rating: 4,
+          watch_trailer: "https://youtube.com/embed/5Itr2jHuJaw"
         },
         {
           id: 9,
           src: require("../assets/images/img9.jpg"),
           title: "Star Trek",
-          rating: 4.2
+          rating: 4.2,
+          watch_trailer: "https://youtube.com/embed/7TSsdMOmDdg"
         }
       ]
     };
@@ -139,23 +165,19 @@ export default {
 .Peliculas{
   background-color: aqua;
   padding: 15px;
-  align-items: center;
-  .p{
-    align-self: center;
-  }
 }
 
 .v-container {
   max-width: 1200px;
-  .v-card{
-    align-self: center;
-  }
 }
 
-.movieInfo{
-  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-  font-size: 1vw;
-  font-style: italic;
+.titulo{
+  box-shadow: 10px 10px 5px #000;
+  border-radius: 20px;
+}
+h1{
+  font-family: cursive,Lucida Handwriting;
+  font-size: 40vw;
 }
 </style>
 

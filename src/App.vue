@@ -1,9 +1,11 @@
 <template>
   <v-app>
-    <v-app-bar flat max-height="65">
+    <v-app-bar max-height="65"
+      src="https://www.solofondos.com/wp-content/uploads/2015/11/21omxpw.jpg"
+    >
       <Header />
     </v-app-bar>
-
+    <div></div>
     <router-view></router-view>
 
     <v-footer>
@@ -39,7 +41,5 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
 }
-.container {
-  max-width: 1200px;
-}
+
 </style>

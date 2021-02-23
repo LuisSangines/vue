@@ -1,17 +1,18 @@
 <template>
-  <div class="Hambre">
-    <v-content>
-    <div class="staticHero">
-      <h2>Que se te antoja?</h2>
-    </div>
-    <div class="oa">
+  <v-container class="Hambre">
+    <div class="formulario">
+      <div class="titulo">
+        <h1>Que se te antoja?</h1>
+      </div>
       <v-container>
         <v-form ref="form" v-model="valid" lazy-validation>
           <v-text-field v-model="name" :counter="20" :rules="nameRules" label="Name" required></v-text-field>
           <v-text-field v-model="email" :rules="emailRules" label="E-mail" required></v-text-field>
           <v-textarea v-model="adress" :rules="adressRules" label="Dirección" required></v-textarea>
           <v-container>
-            <h2 class="text-center">Escoge tus acompañamientos favoritos</h2>  
+            <div class="titulo">
+            <h1 class="text-center">Escoge tus acompañamientos favoritos</h1>  
+            </div>
               <v-row>
                 <v-col v-for="item in golosinas" :key="item.id" class="d-flex child-flex" cols="2" sm="2">     
                   <v-card flat tile 
@@ -36,7 +37,7 @@
                           Precio ${{ item.costo }}
                         </div>
                         <v-select
-                          :items="cantidad"
+                          :items= [1,2,3,4,5,6]
                           label="Cantidad"
                           Outlined
                         ></v-select>                        
@@ -51,9 +52,8 @@
           <v-btn color="error" class="mr-4" @click="reset">Reset</v-btn>
         </v-form>
       </v-container>
-    </div>
-  </v-content>
-  </div>
+      </div>
+  </v-container>
 </template>
 
 <script>
@@ -63,18 +63,18 @@ export default {
     valid: true,
     name: "",
     nameRules: [
-      v => !!v || "Name is required",
-      v => (v && v.length <= 20) || "Name must be less than 20 characters"
+      name => !!name || "Name is required",
+      name => (name && name.length <= 20) || "Name must be less than 20 characters"
     ],
     email: "",
     emailRules: [
-      v => !!v || "E-mail is required",
-      v => /.+@.+\..+/.test(v) || "E-mail must be valid"
+      email => !!email || "E-mail is required",
+      email => /.+@.+\..+/.test(email) || "E-mail must be valid"
     ],
     adress: "",
     adressRules: [
-      v => !!v || "adress is required",
-      v => (v && v.length >= 10) || "Message must be more than 10 characters"
+      adress => !!adress || "adress is required",
+      adress => (adress && adress.length >= 10) || "Message must be more than 10 characters"
     ],
     golosinas:[
       {
@@ -149,8 +149,7 @@ export default {
         costo: 5,
         info: "a"
       }                
-    ],
-    cantidad:[1,2,3,4,5,6]
+    ]
   }),
 
   methods: {
@@ -168,6 +167,18 @@ export default {
 
 <style lang="scss">
 .Hambre{
-  background: aquamarine;
+  background: #000;
+}
+h1{
+  font-family: cursive,Lucida Handwriting;
+  font-size: 33px;
+}
+.titulo{
+  box-shadow: 10px 10px 5px #000;
+  
+}
+.formulario{
+  border-radius: 20px;
+  background:aquamarine;
 }
 </style>
